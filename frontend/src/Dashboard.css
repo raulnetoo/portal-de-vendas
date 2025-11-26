@@ -1,0 +1,27 @@
+/* src/Dashboard.css */
+
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Garante altura total */
+    background-color: #f8f9fa; 
+}
+
+.main-area {
+    display: flex;
+    flex: 1; /* Ocupa todo o espaço vertical restante */
+    overflow: hidden; 
+}
+
+.content-container {
+    flex: 1; 
+    padding: 20px;
+    overflow-y: auto; /* Apenas o conteúdo rola */
+}
+/* O dashboard-content-area que envolve o conteúdo das páginas */
+.dashboard-content-area {
+    background: var(--color-widget-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}

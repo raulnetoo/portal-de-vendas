@@ -1,0 +1,66 @@
+/* src/components/GoalWidget.css */
+
+.widget {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.goal-widget h3 {
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.goal-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.goal-item {
+    text-align: center;
+    flex: 1;
+    padding: 0 10px;
+}
+
+.goal-item .label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.goal-item .value {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.value.primary { color: #007bff; }
+.value.success { color: #28a745; }
+.value.danger { color: #dc3545; }
+
+.progress-bar-container {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    height: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #007bff; /* Cor principal */
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #333;
+    font-weight: bold;
+}

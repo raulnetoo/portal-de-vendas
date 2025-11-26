@@ -1,0 +1,81 @@
+/* src/components/PromotionsWidget.css */
+
+.promotions-widget {
+    background-color: #fff3cd; /* Amarelo Claro para destaque */
+    border: 1px solid #ffeeba;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.promo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ffda6a;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.promo-header h2 {
+    color: #856404; /* Cor de texto escura no amarelo */
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.promo-tag {
+    background-color: #dc3545; /* Vermelho vibrante */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    animation: pulse 1.5s infinite; /* Efeito piscante */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Lista de Promoções */
+.promo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.promo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ffda6a;
+}
+
+.promo-item:last-child {
+    border-bottom: none;
+}
+
+.promo-nome {
+    font-weight: bold;
+    color: #494949;
+    display: block;
+    font-size: 1.1em;
+}
+
+.promo-produtos {
+    font-size: 0.8em;
+    color: #856404;
+}
+
+.promo-prazo strong {
+    color: #dc3545; /* Destaca o prazo */
+}
+
+.no-promo-message {
+    color: #856404;
+    text-align: center;
+    font-style: italic;
+}

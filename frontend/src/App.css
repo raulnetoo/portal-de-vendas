@@ -1,0 +1,96 @@
+/* src/App.css */
+
+:root {
+    --color-primary: #3b82f6; /* Azul */
+    --color-secondary: #6366f1; /* Índigo */
+    --color-success: #10b981; /* Verde esmeralda */
+    --color-danger: #ef4444; /* Vermelho */
+    --color-warning: #f59e0b; /* Amarelo/Laranja */
+    --color-background-light: #f9fafb;
+    --color-background-dark: #1f2937;
+    --color-text: #333;
+}
+
+/* ------------------------------------------- */
+/* --- RESET BÁSICO E FONTE --- */
+/* ------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9; /* Fundo cinza claro para a área externa */
+    color: var(--color-text);
+}
+
+#root {
+    /* Garante que o container principal ocupe todo o espaço disponível */
+    height: 100vh; 
+    width: 100vw;
+}
+
+/* ------------------------------------------- */
+/* --- LAYOUT PRINCIPAL (App.jsx) --- */
+/* ------------------------------------------- */
+
+/* 1. CONTÊINER PRINCIPAL: Define as duas colunas (Sidebar e Conteúdo) */
+.app-container {
+    display: grid;
+    /* Define o layout: 250px para a sidebar, o restante (1fr) para o conteúdo */
+    grid-template-columns: 250px 1fr; 
+    min-height: 100vh; 
+    width: 100%;
+}
+
+/* 2. CONTEÚDO PRINCIPAL: Área de trabalho */
+.main-content {
+    padding: 30px; /* Padding maior para o conteúdo */
+    background-color: white; 
+    overflow-y: auto; 
+    border-left: 1px solid #e0e0e0;
+}
+
+/* ------------------------------------------- */
+/* --- SIDEBAR (Menu Lateral) --- */
+/* ------------------------------------------- */
+
+.sidebar {
+    background-color: var(--color-primary); /* Azul */
+    color: white;
+    padding: 20px 0; 
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column; /* Organiza os links um abaixo do outro */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    color: #ffffff; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link.active {
+    background-color: white; 
+    color: var(--color-primary); /* Texto azul no item ativo */
+    font-weight: bold;
+    border-left: 5px solid var(--color-warning); /* Linha lateral para destaque */
+    padding-left: 15px; /* Ajusta o padding para a linha aparecer */
+}
+
+/* Garante que o ícone na sidebar ativa fique azul */
+.nav-link.active svg {
+    color: var(--color-primary) !important; 
+}

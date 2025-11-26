@@ -1,0 +1,49 @@
+/* src/components/Sidebar.css */
+
+.sidebar {
+    width: 250px;
+    background-color: var(--color-sidebar-bg); /* Azul escuro principal */
+    color: var(--color-text-light);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0; 
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 5px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #cbd5e1; /* Cinza claro suave */
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #254b9d; /* Azul um pouco mais claro no hover */
+    color: white;
+}
+
+.menu-item.active {
+    background-color: var(--color-topbar-bg); /* Fundo do topbar para contraste */
+    color: white;
+    font-weight: bold;
+    border-left: 5px solid var(--color-success); /* Destaque verde */
+}
+
+.menu-item .icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.menu-item .text {
+    font-size: 1em;
+}

@@ -1,0 +1,133 @@
+/* src/pages/Pedidos.css */
+
+.pedidos-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.pedidos-header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.pedidos-toolbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.filter-group label {
+    font-weight: bold;
+    color: var(--color-text-dark);
+}
+
+.filter-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.result-count {
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* --- Tabela de Pedidos --- */
+
+.pedidos-table-wrapper {
+    overflow-x: auto;
+    flex: 1; 
+}
+
+.pedidos-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pedidos-table th, .pedidos-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.pedidos-table th {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+/* --- Status Tags --- */
+.status-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-faturado {
+    background-color: var(--color-success); /* Verde */
+    color: white;
+}
+.status-aguardando {
+    background-color: #fcd34d; /* Amarelo */
+    color: #92400e;
+}
+.status-separacao {
+    background-color: #bfdbfe; /* Azul Claro */
+    color: #1e40af;
+}
+.status-cancelado {
+    background-color: var(--color-danger); /* Vermelho */
+    color: white;
+}
+
+.pedido-total {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.action-button {
+    font-size: 0.8em;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #e5e7eb;
+    color: var(--color-text-dark);
+    border: 1px solid #ccc;
+}
+.action-button:hover {
+    background-color: #d1d5db;
+}
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+}

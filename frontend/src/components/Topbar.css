@@ -1,0 +1,41 @@
+/* src/components/Topbar.css */
+
+.topbar {
+    background-color: #007bff; /* Cor Primária */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Garante que fique acima de outros elementos */
+}
+
+.topbar-logo .logo-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.topbar-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info, .company-info {
+    font-size: 0.9em;
+}
+
+.logout-button {
+    background-color: #dc3545; /* Cor de Alerta/Perigo */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}

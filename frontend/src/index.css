@@ -1,0 +1,28 @@
+/* src/index.css */
+
+/* Regras Básicas do CSS Reset - Mantenha isto */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 1. CORREÇÃO DA BARRA PRETA */
+body {
+  margin: 0;
+  /* REMOVE AS REGRAS PADRÃO DO VITE QUE QUEBRAM O LAYOUT: */
+  /* display: flex; */
+  /* place-items: center; */
+  /* min-width: 320px; */
+  
+  min-height: 100vh;
+  /* Corrigimos a cor de fundo no App.css e Dashboard.css */
+}
+
+/* O restante das regras (a, h1, button) podem ser mantidas ou removidas, 
+   mas o essencial é que as regras do body e do :root não tenham fundo preto 
+   ou regras de layout conflitantes. */

@@ -1,0 +1,146 @@
+/* src/pages/Relatorios.css */
+
+.relatorios-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.relatorios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.periodo-selector select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+/* --- Grid Principal --- */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    min-height: 250px;
+}
+
+.card h2 {
+    color: var(--color-primary);
+    font-size: 1.2em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* --- 1. Meta Card --- */
+.meta-card {
+    grid-column: 1 / span 2; /* Ocupa as duas colunas */
+}
+
+.meta-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-success);
+    margin: 10px 0;
+}
+
+.progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    height: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--color-success);
+    transition: width 0.5s ease;
+}
+
+.meta-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- 2. Gráfico de Vendas Mensais (Simulado Linha/Barra) --- */
+.vendas-mes-card {
+    grid-column: 1 / span 1; 
+}
+.chart-simulado {
+    height: 150px;
+    padding-top: 5px;
+    display: flex;
+    align-items: flex-end;
+}
+.line-chart .chart-area {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-left: 5px;
+    gap: 15px;
+}
+.bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    flex: 1;
+}
+.line-point {
+    width: 15px;
+    background-color: var(--color-primary);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    transition: height 0.5s;
+}
+.label-mes {
+    font-size: 0.75em;
+    color: #666;
+}
+
+/* --- 3. Top Clientes (Simulado Pizza) --- */
+.top-clientes-card {
+    grid-column: 2 / span 1;
+}
+.pie-chart-legend ul {
+    list-style: none;
+    padding: 0;
+}
+.pie-chart-legend li {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+/* Cores para a legenda */
+.dot-0 { background-color: #3b82f6; } /* Azul */
+.dot-1 { background-color: #10b981; } /* Verde */
+.dot-2 { background-color: #f59e0b; } /* Laranja */
+.dot-3 { background-color: #ef4444; } /* Vermelho */
+.dot-4 { background-color: #8b5cf6; } /* Roxo */

@@ -1,0 +1,165 @@
+/* src/pages/Clientes.css */
+
+.clientes-container {
+    /* Herda flex: 1 do Dashboard.css para preencher a altura */
+    display: flex;
+    flex-direction: column;
+}
+
+.clientes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.add-button {
+    background-color: var(--color-success);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #059669; /* Verde mais escuro */
+}
+
+.clientes-toolbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f8f8; /* Fundo claro para a toolbar */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.filter-group label {
+    font-weight: bold;
+    color: var(--color-text-dark);
+}
+
+.filter-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.result-count {
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* --- Tabela de Clientes --- */
+
+.clientes-table-wrapper {
+    overflow-x: auto; /* Permite scroll horizontal em telas pequenas */
+    flex: 1; /* Ocupa o espaço restante na vertical */
+}
+
+.clientes-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.clientes-table th, .clientes-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.clientes-table th {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+.inativo-row {
+    background-color: #fef2f2; /* Fundo levemente vermelho para inativos */
+    color: #991b1b;
+}
+
+.client-name {
+    display: block;
+    font-weight: bold;
+    color: var(--color-text-dark);
+}
+
+.client-status {
+    font-size: 0.75em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.client-status.ativo { background-color: #d1fae5; color: #065f46; }
+.client-status.inativo { background-color: #fee2e2; color: #991b1b; }
+
+.potencial-tag {
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+.potencial-tag.alto { background-color: #fef9c3; color: #a16207; }
+.potencial-tag.medio { background-color: #dbeafe; color: #1e40af; }
+.potencial-tag.baixo { background-color: #f3e8ff; color: #7e22ce; }
+
+.warning-badge {
+    font-size: 0.75em;
+    margin-left: 10px;
+    color: var(--color-danger);
+    font-weight: bold;
+}
+
+/* Botões de Ação */
+.action-button {
+    font-size: 0.8em;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.orcamento-button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+.orcamento-button:hover {
+    background-color: #1e307a;
+}
+.detail-button {
+    background-color: #e5e7eb;
+    color: var(--color-text-dark);
+    border: 1px solid #ccc;
+}
+.detail-button:hover {
+    background-color: #d1d5db;
+}
