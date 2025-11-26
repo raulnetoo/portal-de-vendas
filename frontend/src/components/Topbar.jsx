@@ -17,10 +17,10 @@ function Topbar({ nomeUsuario, nomeEmpresa, onLogout }) {
       </div>
       <div className="topbar-info">
         <span className="user-info">
-          Olá, **{nomeUsuario}**
+          Olá, {nomeUsuario}
         </span>
         <span className="company-info">
-          Empresa: **{nomeEmpresa}**
+          Empresa: {nomeEmpresa}
         </span>
         {/* ⬅️ ALTERADO: Botão de Sair com Ícone */}
         <button onClick={onLogout} className="logout-button" title="Sair">
