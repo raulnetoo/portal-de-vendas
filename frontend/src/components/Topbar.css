@@ -11,9 +11,13 @@
     z-index: 100; /* Garante que fique acima de outros elementos */
 }
 
-.topbar-logo .logo-text {
-    font-size: 1.5em;
-    font-weight: bold;
+/* REMOVIDO: O estilo para '.logo-text' não é mais necessário */
+
+/* ⬅️ NOVO: Estilo para a imagem do logo */
+.topbar-logo-img {
+    height: 50px; /* Define o tamanho da imagem */
+    width: auto; 
+    vertical-align: middle; 
 }
 
 .topbar-info {

@@ -5,15 +5,73 @@ import React from 'react';
 // Define os componentes SVG monocromáticos
 // NOTA: 'fill="currentColor"' permite que a cor seja definida via prop 'color' ou CSS.
 
-// Ícone de Link/Navegação (Seta)
-const NavIcon = (props) => (
-  <svg viewBox="0 0 24 24" width="20" height="20" {...props}>
+// =======================================================
+// ÍCONES DE NAVEGAÇÃO
+// =======================================================
+
+// 1. Dashboard (Dashboar - Chart)
+const DashboardIcon = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
     <path
       fill="currentColor"
-      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
     />
   </svg>
 );
+
+// 2. Clientes (Manter o NavIcon por enquanto)
+const NavIcon = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+    />
+  </svg>
+);
+
+// 3. Produtos (Package 2)
+const ProdutosIcon = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      d="M17 16H7V4h10m1-3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM7 18h10v2H7z"
+    />
+  </svg>
+);
+
+// 4. Orçamentos (Inbox Text)
+const OrcamentosIcon = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-3-9H7v2h10V9z"
+    />
+  </svg>
+);
+
+// 5. Pedidos (Order Approve)
+const PedidosIcon = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
+    />
+  </svg>
+);
+
+// 6. Relatórios (Equalizer)
+const RelatoriosIcon = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"
+    />
+  </svg>
+);
+
+// =======================================================
+// ÍCONES DE USO GERAL
+// =======================================================
 
 // Ícone de Adicionar (+)
 const AddIcon = (props) => (
@@ -49,30 +107,48 @@ const ArrowDownIcon = (props) => (
     </svg>
 );
 
+// Ícone de Sair (Logout)
+const LogoutIcon = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path fill="currentColor" d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5z"/>
+  </svg>
+);
 
-/**
- * Componente centralizado para renderizar ícones SVG com cor dinâmica.
- * @param {string} name - Nome do ícone (ex: 'nav', 'add', 'delete').
- * @param {string} color - Cor para o 'fill' do SVG (padrão é branco).
- */
-const SvgIcon = ({ name, color = 'white', ...rest }) => {
-  const icons = {
-    nav: NavIcon,
+
+// =======================================================
+// MAPA DE ÍCONES (para uso no componente SvgIcon)
+// =======================================================
+const icons = {
+    // Menu (NOVOS ÍCONES)
+    dashboard: DashboardIcon, // NOVO
+    clientes: NavIcon,        // Mantido (pode ser trocado por GroupIcon, se quiser)
+    produtos: ProdutosIcon,    // NOVO
+    orcamentos: OrcamentosIcon, // NOVO
+    pedidos: PedidosIcon,      // NOVO
+    relatorios: RelatoriosIcon,  // NOVO
+    
+    // Geral
+    nav: NavIcon, // Mantido como fallback para a seta, se necessário
     add: AddIcon,
     delete: DeleteIcon,
-    arrowup: ArrowUpIcon,
-    arrowdown: ArrowDownIcon,
-    // (Poderia adicionar mais ícones aqui)
-  };
+    arrowUp: ArrowUpIcon,
+    arrowDown: ArrowDownIcon,
+    logout: LogoutIcon,
+};
 
-  const IconComponent = icons[name.toLowerCase()];
+const SvgIcon = ({ name, color, width = "24", height = "24", style = {} }) => {
+  const IconComponent = icons[name];
 
   if (!IconComponent) {
-    return null; // Ícone não encontrado
+    console.error(`Ícone não encontrado: ${name}`);
+    return null;
   }
-  
-  // Aplica a cor via propriedade 'color' que é lida pelo 'currentColor' no SVG
-  return <IconComponent style={{ color: color }} {...rest} />;
+
+  // Define a cor via style, se fornecida, para que o 'currentColor' no SVG funcione
+  const finalStyle = { ...style, color: color || style.color };
+
+  // Renderiza o componente SVG, passando props de tamanho e estilo
+  return <IconComponent width={width} height={height} style={finalStyle} />;
 };
 
 export default SvgIcon;

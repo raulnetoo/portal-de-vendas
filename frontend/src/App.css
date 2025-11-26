@@ -67,6 +67,7 @@ body {
     flex-direction: column; /* Organiza os links um abaixo do outro */
 }
 
+/* *** AQUI ESTÃO AS MUDANÇAS CHAVE *** */
 .nav-link {
     display: flex;
     align-items: center;
@@ -76,21 +77,45 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.2s, color 0.2s;
+    /* --- NOVO: Define o tamanho base para o texto e ícone --- */
+    font-size: 24px; 
 }
 
 .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.1); /* Um pouco mais claro no hover */
 }
 
 .nav-link.active {
-    background-color: white; 
-    color: var(--color-primary); /* Texto azul no item ativo */
+    background-color: white; /* Fundo branco no ativo */
+    color: var(--color-primary); /* Texto azul no ativo */
     font-weight: bold;
-    border-left: 5px solid var(--color-warning); /* Linha lateral para destaque */
-    padding-left: 15px; /* Ajusta o padding para a linha aparecer */
 }
 
-/* Garante que o ícone na sidebar ativa fique azul */
-.nav-link.active svg {
-    color: var(--color-primary) !important; 
+/* --- NOVO: Regra para redimensionar o SVG com a fonte --- */
+.nav-link svg {
+    /* Faz o SVG ter o mesmo tamanho do font-size (1em = 14px) */
+    width: 1em; 
+    height: 1em;
+    flex-shrink: 0; /* Impede que o ícone seja esmagado */
+}
+/* *** FIM DAS MUDANÇAS CHAVE *** */
+
+
+/* Estilos para o texto do link */
+.nav-link span {
+    flex-grow: 1;
+}
+
+/* Cabeçalho da Sidebar */
+.sidebar-header {
+    text-align: center;
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header h2 {
+    font-size: 1.8em;
+    margin: 0;
+    font-weight: 700;
 }

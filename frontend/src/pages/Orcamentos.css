@@ -1,18 +1,7 @@
 /* src/pages/Orcamentos.css */
 
-:root {
-    --color-primary: #3b82f6; /* Azul */
-    --color-secondary: #6366f1; /* Índigo */
-    --color-success: #10b981; /* Verde esmeralda */
-    --color-danger: #ef4444; /* Vermelho */
-    --color-warning: #f59e0b; /* Amarelo/Laranja */
-    --color-background-light: #f9fafb;
-    --color-background-dark: #1f2937;
-    --color-text: #333;
-}
-
 /* ------------------------------------------- */
-/* --- Layout Geral --- */
+/* --- Layout Geral e Container --- */
 /* ------------------------------------------- */
 
 .orcamentos-container {
@@ -21,13 +10,23 @@
 
 .orcamentos-container h1 {
     color: var(--color-primary);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* O container principal usa grid para dividir o lado esquerdo (Cliente/Itens) e o lado direito (Sinaleiro/Totais) */
+.orcamento-main-layout {
+    display: grid;
+    /* Coluna 1: Conteúdo principal (tabela), Coluna 2: 300px para o resumo/totais */
+    grid-template-columns: 1fr 300px; 
+    gap: 30px;
 }
 
 /* ------------------------------------------- */
-/* --- Cliente Info --- */
+/* --- Coluna da Esquerda (Cliente e Itens) --- */
 /* ------------------------------------------- */
 
+/* CLIENTE INFO */
 .orcamento-cliente-info {
     display: flex;
     align-items: center;
@@ -36,406 +35,172 @@
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f0f4f8;
+    background-color: #f0f4f8; /* Fundo claro para destaque */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.cliente-selector-group {
-    display: flex;
-    align-items: center;
-}
-
-.cliente-selector-group label {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.cliente-select-dropdown {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-width: 250px;
-}
-
-.suframa-badge {
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    font-weight: bold;
-}
-
-.suframa-on {
-    background-color: #059669;
-    color: white;
-}
-
-.suframa-off {
-    background-color: #d1d5db;
-    color: #4b5563;
-}
-
-/* ------------------------------------------- */
-/* --- Main Grid (Catálogo e Carrinho) --- */
-/* ------------------------------------------- */
-
-.orcamento-main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Catálogo | Carrinho (maior) */
-    gap: 30px;
-}
-
-.col-title {
-    border-bottom: 2px solid var(--color-primary);
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    font-size: 1.2em;
-    color: #4b5563;
-}
-
-/* ------------------------------------------- */
-/* --- Catálogo (Esquerda) --- */
-/* ------------------------------------------- */
-
-.orcamento-catalog-col {
-    padding-right: 15px;
-    border-right: 1px solid #eee;
-}
-
-.catalog-toolbar {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-    align-items: center;
-}
-
-.search-input {
+.cliente-details {
     flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
-.tabela-padrao-selector {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.9em;
-}
-
-.catalog-preview-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.catalog-product-card {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    background-color: white;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.product-miniatura {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 4px;
-}
-
-.product-details {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.product-code {
-    font-size: 0.8em;
-    color: #6b7280;
-}
-
-.product-price {
+.cliente-name {
+    font-size: 1.1em;
     font-weight: bold;
     color: var(--color-primary);
-}
-
-.product-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.promo-tag {
-    background-color: var(--color-warning);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.7em;
-    font-weight: bold;
-}
-
-/* Ícone de Adicionar - Verde */
-.add-carrinho-btn {
-    background-color: transparent; 
-    border: 2px solid var(--color-success); 
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-    line-height: 1;
-    transition: background-color 0.2s;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-.add-carrinho-btn:hover {
-    background-color: #d1fae5; 
-}
-.add-carrinho-btn svg { 
-    width: 20px;
-    height: 20px;
-}
-
-.no-results {
-    color: #6b7280;
-    font-style: italic;
-    padding: 10px;
-}
-
-/* ------------------------------------------- */
-/* --- Carrinho (Direita) --- */
-/* ------------------------------------------- */
-
-.carrinho-itens-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-height: 500px;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-
-.carrinho-vazio {
-    text-align: center;
-    color: #9ca3af;
-    font-size: 1.1em;
-    padding: 40px;
-    border: 2px dashed #e5e7eb;
-    border-radius: 8px;
-}
-
-.carrinho-item {
-    display: flex;
-    gap: 15px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: white;
-    align-items: center;
-}
-
-.item-foto {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.item-info {
-    flex-grow: 1;
-    min-width: 150px;
-}
-
-.item-name-row {
     margin-bottom: 5px;
 }
 
-.item-code {
-    font-size: 0.75em;
-    color: #6b7280;
-    margin-right: 10px;
+.cliente-detail-row {
+    font-size: 0.9em;
+    color: #555;
 }
 
-.item-name {
-    font-weight: bold;
-    font-size: 0.95em;
+/* ITENS DO ORÇAMENTO (TABELA) */
+.orcamento-itens {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.item-tax-row {
-    font-size: 0.7em;
-    color: #9ca3af;
-    display: flex;
-    gap: 10px;
+.orcamento-itens h2 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    color: var(--color-text);
 }
 
-.suframa-isento-tag {
-    color: var(--color-danger);
-    font-weight: bold;
+.orcamento-tabela {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.item-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.orcamento-tabela th, .orcamento-tabela td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
 }
 
-/* 1. Controle de Quantidade - Azul */
-.qty-control {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.qty-control input {
-    width: 40px;
-    text-align: center;
-    border: 1px solid #ccc;
-    margin: 2px 0;
-    padding: 3px 0;
-    border-radius: 4px;
-}
-.qty-control button {
-    background: none;
-    border: 1px solid #3b82f6;
-    color: #3b82f6;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    border-radius: 4px;
-    line-height: 1;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* 2. Preço/Desconto */
-.price-discount-row {
-    display: flex;
-    gap: 10px;
-}
-
-.discount-input-group,
-.price-input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.orcamento-tabela th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
     font-size: 0.8em;
 }
 
-.discount-input-group input,
-.price-input-group input {
-    width: 60px;
+.orcamento-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Coluna de Preço, Desconto, Quantidade */
+.orcamento-tabela td.input-cell {
+    width: 100px;
+    text-align: center;
+}
+
+.orcamento-tabela td input {
+    width: 80px;
     padding: 5px;
-    text-align: right;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-top: 2px;
+    text-align: center;
 }
 
-/* 3. Total Item */
-.item-total-price {
-    display: flex;
-    flex-direction: column;
+.orcamento-tabela td.total-cell {
+    font-weight: bold;
+    color: var(--color-primary);
+    width: 120px;
     text-align: right;
-    font-size: 0.9em;
-    min-width: 100px;
 }
 
-.item-total-price .item-preco-tabela {
-    font-size: 0.75em;
-    color: #9ca3af;
-}
-
-/* 4. Botão de Excluir - Vermelho */
 .remove-item-btn {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s;
+    color: var(--color-danger);
+    font-size: 1.1em;
+    transition: color 0.2s;
 }
+
 .remove-item-btn:hover {
-    transform: scale(1.1);
-}
-.remove-item-btn svg {
-    width: 20px;
-    height: 20px;
+    color: #a00;
 }
 
 /* ------------------------------------------- */
-/* --- Resumo Final --- */
+/* --- Coluna da Direita (Sinaleiro e Ações) --- */
 /* ------------------------------------------- */
 
-.carrinho-resumo-final {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #ccc;
+.orcamento-resumo {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    position: sticky; /* Fixa o resumo na tela */
+    top: 20px; /* Distância do topo */
 }
 
-.totais-fiscais {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    font-size: 0.85em;
-    color: #4b5563;
+.orcamento-totais-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.total-discount-row,
-.total-geral-final {
+/* Detalhes dos Totais */
+.detalhes-totais {
+    margin-bottom: 20px;
+}
+
+.total-linha {
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
-    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.95em;
 }
 
-.total-geral-final {
+.total-linha:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.total-final {
     font-size: 1.3em;
     font-weight: bold;
-    border-top: 2px solid var(--color-secondary);
-    padding-top: 10px;
+    color: var(--color-success);
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 2px solid var(--color-success);
 }
 
-.value-desconto,
-.final-value {
-    font-weight: bold;
+/* Campo de observações */
+.obs-group {
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
-.desconto-total-input {
-    width: 60px;
-    text-align: right;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.observacoes-area label {
+.obs-group label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #4a4a4a;
 }
 
-.observacoes-area textarea {
+.obs-group textarea {
     width: 100%;
+    min-height: 80px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
 }
 
+/* Botões Finais */
 .action-buttons-final {
     display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-top: 15px;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .salvar-button {
@@ -446,13 +211,17 @@
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
-    background-color: #6b7280;
+    background-color: #6c757d;
     color: white;
 }
 
+.salvar-button:hover {
+    background-color: #5a6268;
+}
+
 .pedido-button {
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 12px 20px;
+    font-size: 1.1em;
     font-weight: bold;
     border: none;
     border-radius: 6px;
@@ -469,48 +238,46 @@
 /* ------------------------------------------- */
 /* --- Sinaleiro de Margem (CORES) --- */
 /* ------------------------------------------- */
+
 .sinaleiro-margem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 4px;
+    padding: 15px 20px;
+    border-radius: 8px;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.1em;
     color: white;
-    background-color: #333; /* Padrão escuro */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.sinaleiro-margem h3 {
+    margin-top: 0;
+    font-size: 1.2em;
 }
 
 .sinaleiro-margem.status-red {
-    background-color: var(--color-danger); 
+    background-color: var(--color-danger); /* Vermelho */
 }
 
 .sinaleiro-margem.status-yellow {
-    background-color: var(--color-warning); 
-    color: #333; 
+    background-color: var(--color-warning); /* Amarelo */
 }
 
 .sinaleiro-margem.status-green {
-    background-color: var(--color-success); 
+    background-color: var(--color-success); /* Verde */
 }
 
-.sinaleiro-texto {
-    padding: 3px 8px;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
+.sinaleiro-margem.status-blue {
+    background-color: var(--color-primary); /* Azul */
 }
 
-.pedido-button.status-red {
-    background-color: #ef4444; 
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.pedido-button.status-yellow {
-    background-color: #f59e0b; 
-    color: #333;
-}
-.pedido-button.status-yellow:hover {
-    background-color: #d97706;
+/* Sem Itens */
+.no-items-message {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.1em;
+    color: #6c757d;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
 }

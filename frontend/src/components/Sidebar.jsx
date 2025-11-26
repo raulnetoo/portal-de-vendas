@@ -2,37 +2,51 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SvgIcon from "./SvgIcon"; // Importação relativa (na mesma pasta)
+import SvgIcon from "./SvgIcon"; 
 
 function Sidebar() {
     return (
         <aside className="sidebar">
+            <div className="sidebar-header">
+                <h2>Portal de Vendas</h2>
+            </div>
             <nav className="sidebar-nav">
+                {/* Dashboard */}
                 <NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    <SvgIcon name="nav" color="white" /> 
+                    <SvgIcon name="dashboard" /> 
                     <span>Dashboard</span>
                 </NavLink>
+
+                {/* Clientes (Mantém o NavIcon por enquanto) */}
                 <NavLink to="/clientes" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    <SvgIcon name="nav" color="white" /> 
+                    <SvgIcon name="clientes" /> 
                     <span>Clientes</span>
                 </NavLink>
+
+                {/* Produtos */}
                 <NavLink to="/produtos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    <SvgIcon name="nav" color="white" /> 
+                    <SvgIcon name="produtos" /> 
                     <span>Produtos</span>
                 </NavLink>
+
+                {/* Orçamentos */}
                 <NavLink to="/orcamentos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    <SvgIcon name="nav" color="white" /> 
+                    <SvgIcon name="orcamentos" /> 
                     <span>Orçamentos</span>
                 </NavLink>
+
+                {/* Pedidos */}
                 <NavLink to="/pedidos" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    <SvgIcon name="nav" color="white" /> 
+                    <SvgIcon name="pedidos" /> 
                     <span>Pedidos</span>
                 </NavLink>
+
+                {/* Relatórios */}
                 <NavLink to="/relatorios" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    <SvgIcon name="nav" color="white" /> 
+                    <SvgIcon name="relatorios" /> 
                     <span>Relatórios</span>
                 </NavLink>
-                {/* O link de Parametrização foi removido para voltar ao estado anterior */}
+                
             </nav>
         </aside>
     );
